@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClInclude Include="ball.h" />
     <ClInclude Include="fixture.h" />
+    <ClInclude Include="light.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="enviroment.cpp" />

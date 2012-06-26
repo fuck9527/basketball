@@ -5,37 +5,62 @@
 void drawCuboid(float x, float y, float z)
 {
 	glPushMatrix();
+	glEnable(GL_NORMALIZE);	
 	glBegin(GL_QUADS);
 		//up
 		glVertex3f(x/2, y, z/2);
+		glNormal3f(x/2, y, z/2);
         glVertex3f(-x/2, y, z/2);
+		glNormal3f(-x/2, y, z/2);
         glVertex3f(-x/2, y, -z/2);
+		glNormal3f(-x/2, y, -z/2);
         glVertex3f(x/2, y, -z/2);
+		glNormal3f(x/2, y, -z/2);
 		//down
 		glVertex3f(x/2, 0, z/2);
+		glNormal3f(x/2, 0, z/2);
         glVertex3f(-x/2, 0, z/2);
+		glNormal3f(-x/2, 0, z/2);
         glVertex3f(-x/2, 0, -z/2);
+		glNormal3f(-x/2, 0, -z/2);
         glVertex3f(x/2, 0, -z/2);
+		glNormal3f(x/2, 0, -z/2);
 		//left
 		glVertex3f(-x/2, y, z/2);
-        glVertex3f(-x/2, y, -z/2);
-        glVertex3f(-x/2, 0, -z/2);
-        glVertex3f(-x/2, 0, z/2);
+        glNormal3f(-x/2, y, z/2);
+		glVertex3f(-x/2, y, -z/2);
+        glNormal3f(-x/2, y, -z/2);
+		glVertex3f(-x/2, 0, -z/2);
+        glNormal3f(-x/2, 0, -z/2);
+		glVertex3f(-x/2, 0, z/2);
+		glNormal3f(-x/2, 0, z/2);
 		//right
 		glVertex3f(x/2, y, z/2);
-        glVertex3f(x/2, y, -z/2);
-        glVertex3f(x/2, 0, -z/2);
-        glVertex3f(x/2, 0, z/2);
+        glNormal3f(x/2, y, z/2);;
+		glVertex3f(x/2, y, -z/2);
+        glNormal3f(x/2, y, -z/2);
+		glVertex3f(x/2, 0, -z/2);
+        glNormal3f(x/2, 0, -z/2);
+		glVertex3f(x/2, 0, z/2);
+		glNormal3f(x/2, 0, z/2);
 		//front
 		glVertex3f(x/2, y, z/2);
+		glNormal3f(x/2, y, z/2);
         glVertex3f(-x/2, y, z/2);
+		glNormal3f(-x/2, y, z/2);
         glVertex3f(-x/2, 0, z/2);
+		glNormal3f(-x/2, 0, z/2);
         glVertex3f(x/2, 0, z/2);
+		glNormal3f(x/2, 0, z/2);
 		//back
 		glVertex3f(x/2, y, -z/2);
+		glNormal3f(x/2, y, -z/2);
         glVertex3f(-x/2, y, -z/2);
+		glNormal3f(-x/2, y, -z/2);
         glVertex3f(-x/2, 0, -z/2);
-        glVertex3f(x/2, 0, -z/2);		
+		glNormal3f(-x/2, 0, -z/2);
+        glVertex3f(x/2, 0, -z/2);
+		glNormal3f(x/2, 0, -z/2);
     glEnd();
 	glPopMatrix();
 }
@@ -63,6 +88,23 @@ void drawStands()
 void drawCourt()
 {
 	glPushMatrix();
+	
+	//glTranslatef(-525, -4, 290);
+	//for (int j = 0; j<36; j++)
+	//{
+	//	for (int k = 0; k<20; k++)
+	//	{
+	//		drawCuboid(30, 4, 30);
+	//		glTranslatef(0, 0, -30);
+	//	}
+	//	glTranslatef(30, 0, 600);
+	//}
+
+	//glPopMatrix();
+
+	//glPushMatrix();
+
+	//glTranslatef(-390, 0, 0);
 	glTranslatef(0, -4, 0);
 	glColor3f(0.94, 0.78, 0.08);
 	drawCuboid(1080, 4, 600);

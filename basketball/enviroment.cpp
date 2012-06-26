@@ -2,25 +2,27 @@
 //#include<gl\GL.h>
 //#include<gl\GLU.h>
 #include "fixture.h"
+#include "light.h"
 
-void background(void)
+void init(void)
 {
 	glClearColor(0.0,0.0,0.0,0.0);//设置背景颜色为黑色
+	setLight();
 }
 
-void myDisplay(void)
+void Display(void)
 {
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glClear(GL_COLOR_BUFFER_BIT);//buffer设置为颜色可写
 	glLoadIdentity();
-	gluLookAt(0,100,800, 0,100,0, 0,1,0);
+	gluLookAt(0,100,600, 0,100,0, 0,1,0);
 
 	drawCourt();
 
 	glFlush();//强制OpenGL函数在有限时间内运行
 }
 
-void myReshape(GLsizei w, GLsizei h)
+void Reshape(GLsizei w, GLsizei h)
 {	
 	glViewport(0,0,(GLsizei)w,(GLsizei)h);
 	glMatrixMode(GL_PROJECTION);
@@ -46,9 +48,9 @@ int main(int argc,char ** argv)
 	glutCreateWindow("Basketball");
 
 	/*绘制与显示*/
-	background();
-	glutReshapeFunc(myReshape);
-	glutDisplayFunc(myDisplay);
+	init();
+	glutReshapeFunc(Reshape);
+	glutDisplayFunc(Display);
 
 	glutMainLoop();
 	return(0);
