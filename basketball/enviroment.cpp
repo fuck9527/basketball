@@ -7,15 +7,18 @@
 void init(void)
 {
 	glClearColor(0.0,0.0,0.0,0.0);//设置背景颜色为黑色
-	setLight();
 }
 
 void Display(void)
 {
 	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glClear(GL_COLOR_BUFFER_BIT);//buffer设置为颜色可写
+	
+
+	
 	glLoadIdentity();
 	gluLookAt(0,100,600, 0,100,0, 0,1,0);
+	setLight();
 
 	drawCourt();
 
@@ -30,10 +33,9 @@ void Reshape(GLsizei w, GLsizei h)
 
     gluPerspective(60,(GLfloat)w/(GLfloat)h,0.1,2000);
 	glMatrixMode(GL_MODELVIEW); 
-	glLoadIdentity();
- 
-	
-	//gluLookAt(0,0,30, 0,0,0, 0,1,0);
+
+	//glLoadIdentity();	
+	//gluLookAt(0,100,600, 0,100,0, 0,1,0);
 }
 
 int main(int argc,char ** argv)

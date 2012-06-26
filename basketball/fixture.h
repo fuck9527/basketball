@@ -89,27 +89,29 @@ void drawCourt()
 {
 	glPushMatrix();
 	
-	//glTranslatef(-525, -4, 290);
-	//for (int j = 0; j<36; j++)
-	//{
-	//	for (int k = 0; k<20; k++)
-	//	{
-	//		drawCuboid(30, 4, 30);
-	//		glTranslatef(0, 0, -30);
-	//	}
-	//	glTranslatef(30, 0, 600);
-	//}
+	glTranslatef(-525, -4, 290);
+	for (int j = 0; j<36; j++)
+	{
+		for (int k = 0; k<20; k++)
+		{
+			drawCuboid(30, 4, 30);
+			glTranslatef(0, 0, -30);
+		}
+		glTranslatef(30, 0, 600);
+	}
 
-	//glPopMatrix();
+	glPopMatrix();
 
-	//glPushMatrix();
+	glPushMatrix();
 
-	//glTranslatef(-390, 0, 0);
-	glTranslatef(0, -4, 0);
+	glTranslatef(-390, 0, 0);
+
+	/*glTranslatef(0, -4, 0);
 	glColor3f(0.94, 0.78, 0.08);
 	drawCuboid(1080, 4, 600);
 
-	glTranslatef(-390, 4, 0);
+	glTranslatef(-390, 4, 0);*/
+
 	drawStands();
 	glTranslatef(780, 0, 0);
 	glRotatef(180, 0, 1, 0);
