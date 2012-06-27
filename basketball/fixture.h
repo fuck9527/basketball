@@ -32,10 +32,10 @@ void LoadGLTextures(char *filename)          // Load Bitmaps And Convert To Text
 	AUX_RGBImageRec *TextureImage[1];      // Create Storage Space For The Texture
 	memset(TextureImage,0,sizeof(void *)*1);           // Set The Pointer To NULL
 	// 装入bmp格式图像，并检查错误，工程下创建的文件夹data
-	printf("filename: %s\n", filename);
+	//printf("filename: %s\n", filename);
 	if (TextureImage[0]=LoadBMP(filename))
 	{
-		printf("haha");
+		//printf("haha");
 		//Status=TRUE;          // Set The Status To TRUE
 		glGenTextures(1, &textures[0]);      // 创建纹理
 		glBindTexture(GL_TEXTURE_2D, textures[0]);
@@ -45,7 +45,7 @@ void LoadGLTextures(char *filename)          // Load Bitmaps And Convert To Text
 	}
 	if (TextureImage[0])          // If Texture Exists
 	{
-		printf ("haha1");
+		//printf ("haha1");
 		if (TextureImage[0]->data)        // If Texture Image Exists
 		{
 			free(TextureImage[0]->data);      // Free The Texture Image Memory
@@ -131,6 +131,27 @@ void drawStands()
 	glColor3f(1, 1, 1);
 	drawCuboid(4, 40, 60);
 
+	glPushMatrix();
+		glTranslatef(2,20,0);
+		LoadGLTextures("E:\\b.bmp");
+		glEnable(GL_TEXTURE_2D);
+			glBegin(GL_QUADS);
+				glNormal3f(0,-20,30);
+				glTexCoord2f(0,1);
+				glVertex3f(0, 20, 30);
+				glNormal3f(0,20,30);
+				glTexCoord2f(1,1);
+				glVertex3f(0, 20, -30);
+				glNormal3f(0,20,-30);
+				glTexCoord2f(1,0);
+				glVertex3f(0, -20, -30);
+				glNormal3f(0,-20,-30);
+				glTexCoord2f(0,0);
+				glVertex3f(0, -20, 30);
+			glEnd();
+		glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
 	glTranslatef(13, 10, 0);
 	glRotatef(90, 1, 0, 0);
 	glColor3f(0.5, 0.4, 0.2);
@@ -191,6 +212,73 @@ void drawCourt()
 		drawStands();
 	glPopMatrix();
 
+	glPushMatrix();
+		glTranslatef(0,250,-300);
+		LoadGLTextures("E:\\a1.bmp");
+		glEnable(GL_TEXTURE_2D);
+			glBegin(GL_QUADS);
+				glNormal3f(-540,-250,0);
+				glTexCoord2f(0,1);
+				glVertex3f(-540,250,0);
+
+				glNormal3f(-540,250,0);
+				glTexCoord2f(1,1);
+				glVertex3f(540,250,0);
+
+				glNormal3f(540,250,0);
+				glTexCoord2f(1,0);
+				glVertex3f(540,-250,0);
+
+				glNormal3f(540,-250,0);
+				glTexCoord2f(0,0);
+				glVertex3f(-540,-250,0);
+			glEnd();
+		glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(-540,250,0);
+		LoadGLTextures("E:\\a2.bmp");
+		glEnable(GL_TEXTURE_2D);
+			glBegin(GL_QUADS);
+				glNormal3f(0,-250,300);
+				glTexCoord2f(0,1);
+				glVertex3f(0, 250, 300);
+				glNormal3f(0,250,300);
+				glTexCoord2f(1,1);
+				glVertex3f(0, 250, -300);
+				glNormal3f(0,250,-300);
+				glTexCoord2f(1,0);
+				glVertex3f(0, -250, -300);
+				glNormal3f(0,-250,-300);
+				glTexCoord2f(0,0);
+				glVertex3f(0, -250, 300);
+			glEnd();
+		glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
+	glPushMatrix();
+		glTranslatef(540,250,0);
+		glRotatef(180, 0, 1, 0);
+		LoadGLTextures("E:\\a2.bmp");
+		glEnable(GL_TEXTURE_2D);
+			glBegin(GL_QUADS);
+				glNormal3f(0,-250,300);
+				glTexCoord2f(0,1);
+				glVertex3f(0, 250, 300);
+				glNormal3f(0,250,300);
+				glTexCoord2f(1,1);
+				glVertex3f(0, 250, -300);
+				glNormal3f(0,250,-300);
+				glTexCoord2f(1,0);
+				glVertex3f(0, -250, -300);
+				glNormal3f(0,-250,-300);
+				glTexCoord2f(0,0);
+				glVertex3f(0, -250, 300);
+			glEnd();
+		glDisable(GL_TEXTURE_2D);
+	glPopMatrix();
+
 	/*glPushMatrix();
 	LoadGLTextures("E:\\f.bmp");
 	glEnable(GL_TEXTURE_2D);
@@ -206,4 +294,8 @@ void drawCourt()
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();*/
+}
+
+void drawBall()
+{
 }

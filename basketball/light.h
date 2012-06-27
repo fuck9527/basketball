@@ -16,7 +16,7 @@ void setLight()
 	//glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5);
 	//glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.2);
 
-	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 10);
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 20);
 	//GLfloat light_position[] = {0, 100, 0, 0};
 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 	//glLightfv(GL_LIGHT0, GL_DIFFUSE, white_light);
@@ -40,7 +40,7 @@ void setLight()
 	//glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5);
 	//glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.2);
 
-	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 40);
+	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 36);
 	//GLfloat light_position[] = {0, 100, 0, 0};
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position1);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, white_light);
@@ -64,7 +64,7 @@ void setLight()
 	//glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5);
 	//glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.2);
 
-	glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 40);
+	glLightf(GL_LIGHT2, GL_SPOT_CUTOFF, 36);
 	//GLfloat light_position[] = {0, 100, 0, 0};
 	glLightfv(GL_LIGHT2, GL_POSITION, light_position2);
 	glLightfv(GL_LIGHT2, GL_DIFFUSE, white_light);

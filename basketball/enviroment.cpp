@@ -8,9 +8,19 @@ float xRot = 0;
 float yRot = 100;
 float zRot = 600;
 
+GLfloat height = 50;
+GLfloat reduceRate = 4.0/5.0;
+GLfloat x = 0;
+GLfloat y = height;
+GLfloat dx = 2;
+GLfloat dy = 0;
+GLfloat step = 0.36;
+GLfloat r = 7;    //basketball radius
+bool flag = true;    //true for down
+
 void init(void)
 {
-	glClearColor(0.0,0.0,0.0,0.0);//设置背景颜色为黑色
+	glClearColor(0.3,0.3,0.3,0.3);//设置背景颜色为黑色
 	glClearDepth(1.0);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
@@ -34,12 +44,19 @@ void Display(void)
 	
 	glLoadIdentity();
 	//gluLookAt(0,100,600, 0,100,0, 0,1,0);
-	gluLookAt(xRot,yRot,zRot, xRot,yRot,-1, 0,1,0);
+	gluLookAt(xRot,yRot,zRot, xRot,yRot,-1000, 0,1,0);
 	//gluLookAt(0,1000,0, 0,100,0, 0,0,-1);
 	
 	setLight();
 	drawCourt();
 
+	glPushMatrix();
+	glColor3f(125.0/256.0, 48.0/256.0, 36.0/256.0);        //basketball
+    glTranslatef(x, y, 0);
+    glutSolidSphere(r, 20, 20);
+	glPopMatrix();
+	
+	glutSwapBuffers();
 	glFlush();//强制OpenGL函数在有限时间内运行
 }
 
@@ -70,7 +87,38 @@ void SpecialKeys(int key, int x, int y)
     if(key == GLUT_KEY_RIGHT)
 		xRot += 20;
 
+	if(key == GLUT_KEY_PAGE_UP)
+        yRot += 20;
+
+    if(key == GLUT_KEY_PAGE_DOWN)
+        yRot -= 20;
+
 	glutPostRedisplay();
+}
+
+void move(void)
+{
+	x += dx;
+    y += dy;
+    if (y <= 8 && flag)        //hit floor
+    {
+        flag = false;
+        height *= (reduceRate*reduceRate);
+        dy *= (-reduceRate);
+        dx *= 0.7;
+    }
+    if (dy <= 0  && !flag)        //on the top
+    {
+        flag = true;
+        dy = 0;
+    }
+    dy -= step;
+    if (height <= 8)// || y <= 7)
+    {
+        dy = 0;
+    }
+    if (dx < 0.2) dx = 0;
+    glutPostRedisplay();
 }
 
 int main(int argc,char ** argv)
@@ -88,6 +136,7 @@ int main(int argc,char ** argv)
 	init();
 	glutReshapeFunc(Reshape);
 	glutDisplayFunc(Display);
+    glutIdleFunc(move);
 	glutSpecialFunc(SpecialKeys);
 	glutMainLoop();
 	return(0);
