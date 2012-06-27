@@ -133,7 +133,7 @@ void drawStands()
 
 	glPushMatrix();
 		glTranslatef(2,20,0);
-		LoadGLTextures("E:\\b.bmp");
+		LoadGLTextures("b.bmp");
 		glEnable(GL_TEXTURE_2D);
 			glBegin(GL_QUADS);
 				glNormal3f(0,-20,30);
@@ -170,7 +170,7 @@ void drawCourt()
 	glPopMatrix();
 
 	glPushMatrix();
-		LoadGLTextures("E:\\g.bmp");
+		LoadGLTextures("g.bmp");
 		glEnable(GL_TEXTURE_2D);
 		//glTranslatef(-525, 0, 290);
 		glTranslatef(-536, 0, 296);
@@ -214,7 +214,7 @@ void drawCourt()
 
 	glPushMatrix();
 		glTranslatef(0,250,-300);
-		LoadGLTextures("E:\\a1.bmp");
+		LoadGLTextures("a1.bmp");
 		glEnable(GL_TEXTURE_2D);
 			glBegin(GL_QUADS);
 				glNormal3f(-540,-250,0);
@@ -238,7 +238,7 @@ void drawCourt()
 
 	glPushMatrix();
 		glTranslatef(-540,250,0);
-		LoadGLTextures("E:\\a2.bmp");
+		LoadGLTextures("a2.bmp");
 		glEnable(GL_TEXTURE_2D);
 			glBegin(GL_QUADS);
 				glNormal3f(0,-250,300);
@@ -260,7 +260,7 @@ void drawCourt()
 	glPushMatrix();
 		glTranslatef(540,250,0);
 		glRotatef(180, 0, 1, 0);
-		LoadGLTextures("E:\\a2.bmp");
+		LoadGLTextures("a2.bmp");
 		glEnable(GL_TEXTURE_2D);
 			glBegin(GL_QUADS);
 				glNormal3f(0,-250,300);
@@ -294,8 +294,4 @@ void drawCourt()
 	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();*/
-}
-
-void drawBall()
-{
 }
