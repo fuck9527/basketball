@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ball.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="fixture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
